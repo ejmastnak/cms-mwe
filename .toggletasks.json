@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "name": "Run dev server",
+      "cmd": "npm run dev",
+      "tags": ["serve"],
+      "count": 1
+    },
+    {
+      "name": "Open browser",
+      "cmd": "xdg-open http://localhost:4321",
+      "tags": ["view"],
+      "count": 2
+    }
+  ]
+}

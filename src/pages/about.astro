@@ -1,0 +1,16 @@
+---
+import client from "@tina/__generated__/client";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AboutPage from "@tina/pages/AboutPage.tsx";
+
+const aboutPageEnvelope = await client.queries.myAboutPage({ relativePath: "about.json" });
+
+const title = aboutPageEnvelope.data.aboutPage.meta.title;
+const description = aboutPageEnvelope.data.aboutPage.meta.description;
+---
+
+<BaseLayout title={title} description={description}>
+  <div>
+    <AboutPage {...aboutPageEnvelope} client:tina />
+  </div>
+</BaseLayout>

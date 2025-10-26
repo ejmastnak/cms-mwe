@@ -1,0 +1,4 @@
+let $VIFM_CONTEXT = expand('%d')
+source $VIFM/navigation/astro.vifm
+source $VIFM/navigation/tina.vifm
+

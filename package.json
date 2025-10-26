@@ -6,6 +6,7 @@
     "dev": "tinacms dev -c \"astro dev\"",
     "build": "tinacms build && astro build",
     "preview": "astro preview",
+    "typecheck": "tsc --noEmit",
     "astro": "astro"
   },
   "dependencies": {
@@ -21,7 +22,11 @@
     "tinacms": "^2.8.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "@tinacms/cli": "^1.10.2",
-    "@types/node": "^22.18.0"
+    "@types/node": "^22.18.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
   }
 }

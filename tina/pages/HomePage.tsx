@@ -1,30 +1,32 @@
-import { tinaField, useTina } from "tinacms/dist/react";
-import type { PageQuery, PageQueryVariables } from "../__generated__/types";
+import { useTina, tinaField } from "tinacms/dist/react";
+
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import Heading from "@tina/components/Heading.tsx";
+import type { HomePageQuery, HomePageQueryVariables } from "@tina/__generated__/types";
 
 type Props = {
-	variables: PageQueryVariables;
-	data: PageQuery;
-	query: string;
+  variables: HomePageQueryVariables;
+  data: HomePageQuery;
+  query: string;
+};
+
+export default function HomePage(props: Props) {
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  });
+  const homePage = data.homePage;
+
+  return (
+    <div>
+      <Heading tinaDocument={homePage} />
+
+      <p data-tina-field={tinaField(homePage, "subtitle")}>{homePage.subtitle}</p>
+
+      <div className="prose">
+        <TinaMarkdown content={homePage.body} />
+      </div>
+    </div>
+  );
 }
-
-const HomePage = (props: Props) => {
-	const { data } = useTina({
-		query: props.query,
-		variables: props.variables,
-		data: props.data,
-	})
-
-	const page = data.page;
-
-
-	return (
-		<main>
-			<div data-tina-field={tinaField(page, "body")}>
-				<TinaMarkdown content={page.body} />
-			</div>
-		</main>
-	)
-}
-
-export default HomePage;

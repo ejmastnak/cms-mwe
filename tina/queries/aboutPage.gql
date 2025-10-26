@@ -1,0 +1,29 @@
+query myAboutPage($relativePath: String!) {
+  aboutPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...MyAboutPageParts
+  }
+}
+
+fragment MyAboutPageParts on AboutPage {
+  __typename
+  meta {
+    __typename
+    title
+    description
+  }
+  h1
+  subtitle
+  body
+}
