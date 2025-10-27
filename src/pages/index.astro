@@ -2,20 +2,34 @@
 import client from "@tina/__generated__/client";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import HomePage from "@tina/pages/HomePage.tsx";
+import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
 
 const homePageEnvelope = await client.queries.myHomePage({ relativePath: "home.json" });
 
 const title = homePageEnvelope.data.homePage.meta.title;
 const description = homePageEnvelope.data.homePage.meta.description;
+const tinaImage = homePageEnvelope.data.homePage.image;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/img/*.{jpeg,jpg,png,gif,webp}',
+  { eager: true }
+)
+// const apple = images['/src/assets/img/apple.jpg'].default
+const apple = images[`/src/assets${tinaImage}`].default
+const optimizedApple = await getImage({ src: apple, width: 600 });
+
 ---
 
 <BaseLayout title={title} description={description}>
   <div>
-    <HomePage {...homePageEnvelope} client:tina />
 
     <pre>
-      {JSON.stringify(homePageEnvelope, null, 2)}
+      {JSON.stringify(tinaImage, null, 2)}
     </pre>
 
+    <img src={optimizedApple.src} alt="Foo"/>
+
+    <HomePage {...homePageEnvelope} client:tina />
   </div>
 </BaseLayout>

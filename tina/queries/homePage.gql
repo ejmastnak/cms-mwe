@@ -26,5 +26,6 @@ fragment MyHomePageParts on HomePage {
   }
   h1
   subtitle
+  image
   body
 }

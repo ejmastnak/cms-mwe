@@ -24,7 +24,7 @@ export default function HomePage(props: Props) {
 
       <p data-tina-field={tinaField(homePage, "subtitle")}>{homePage.subtitle}</p>
 
-      <div className="prose">
+      <div data-tina-field={tinaField(homePage, "body")} className="prose mt-5">
         <TinaMarkdown content={homePage.body} />
       </div>
     </div>
