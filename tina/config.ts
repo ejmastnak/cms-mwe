@@ -1,6 +1,7 @@
 import { defineConfig } from "tinacms";
 import { HomePageCollection } from "@tina/collections/pages/home";
 import { AboutPageCollection } from "@tina/collections/pages/about";
+import { TINA_MEDIA_ROOT, TINA_PUBLIC_FOLDER } from "@src/config";
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -10,18 +11,16 @@ const branch =
 
 export default defineConfig({
   branch,
-  clientId: process.env.PUBLIC_TINA_CLIENT_ID, // from tina.io
-  token: process.env.TINA_TOKEN,               // from tina.io
+  clientId: process.env.PUBLIC_TINA_CLIENT_ID,
+  token: process.env.TINA_TOKEN,
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
   media: {
     tina: {
-      publicFolder: "",
-      mediaRoot: "/src/assets",
-      // publicFolder: "public",
-      // mediaRoot: "img",
+      publicFolder: TINA_PUBLIC_FOLDER,
+      mediaRoot: TINA_MEDIA_ROOT,
     },
   },
   schema: {

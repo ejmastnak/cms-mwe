@@ -13,7 +13,6 @@ export default defineConfig({
     resolve: {
       alias: {
         '@': '/src',
-        // '@tina': '/tina',
       },
     },
   },
