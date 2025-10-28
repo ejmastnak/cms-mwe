@@ -19,6 +19,9 @@ const optimized = raw ? await getImage({ src: raw, width: 100, alt: "FOOBAR", })
 
 <BaseLayout title={title} description={description}>
   <div>
+    <pre>
+      {JSON.stringify(tinaImage, null, 2)}
+    </pre>
     <HomePage {...homePageEnvelope} testImg={optimized} client:tina />
   </div>
 </BaseLayout>
