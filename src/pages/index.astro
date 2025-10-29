@@ -12,8 +12,9 @@ const title = homePageEnvelope.data.homePage.meta.title;
 const description = homePageEnvelope.data.homePage.meta.description;
 
 const tinaImage = homePageEnvelope.data.homePage.image;
+const tinaImageAlt = homePageEnvelope.data.homePage.imageAlt;
 const raw = await resolveTinaImage(tinaImage);
-const optimized = raw ? await getImage({ src: raw, width: 100, alt: "FOOBAR", }) : null;
+const optimized = raw ? await getImage({ src: raw, width: 100, alt: tinaImageAlt, }) : null;
 
 ---
 

@@ -52,6 +52,12 @@ export const HomePageCollection: Collection = {
       required: true,
     },
     {
+      name: "imageAlt",
+      label: "Image Alt Text",
+      type: "string",
+      required: true,
+    },
+    {
       name: "body",
       label: "Body",
       type: "rich-text",

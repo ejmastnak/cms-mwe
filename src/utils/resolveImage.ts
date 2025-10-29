@@ -1,7 +1,7 @@
 import type { ImageMetadata } from "astro";
 import { TINA_MEDIA_ROOT, } from "@/config";
 
-// Must hardcode glob pattern because import.meta.glob needs a string literal.
+// Glob must be harcoded because import.meta.glob requires a string literal
 const localImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/img/uploads/**/*.{jpg,jpeg,png,webp}",
   { eager: true }
