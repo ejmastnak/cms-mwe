@@ -1,7 +1,7 @@
 import { defineConfig } from "tinacms";
 import { HomePageCollection } from "@tina/collections/pages/home";
 import { AboutPageCollection } from "@tina/collections/pages/about";
-import { TINA_MEDIA_ROOT, TINA_PUBLIC_FOLDER } from "@src/config";
+import { TINA_MEDIA_ROOT, TINA_PUBLIC_FOLDER, TINA_SUPPORTED_IMAGE_MIMES, } from "@src/config";
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -22,6 +22,7 @@ export default defineConfig({
       publicFolder: TINA_PUBLIC_FOLDER,
       mediaRoot: TINA_MEDIA_ROOT,
     },
+    accept: TINA_SUPPORTED_IMAGE_MIMES,
   },
   schema: {
     collections: [
